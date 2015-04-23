@@ -125,6 +125,7 @@ lcm(21, 6);
 
 Next, I converted the gcd code for two integers into code to handle an array of integers:
 See the code at http://repl.it/k6E/2
+Note the addition of the for- and while-loops to cause the iteratation over the integers in the array.
 
 ```
 function gcd(arr) {
@@ -139,6 +140,28 @@ function gcd(arr) {
     }
     return a;
 }
-gcd([21, 6]);
+gcd([21, 6, 36]);  //<== returns 3
+
+```
+Finally, I had work with the code above to do the a*b/gcd iterations.
+
+```function lcm(arr) {
+    var p = arr[0];
+    for(var i = 1; i < arr.length; i++) {
+        var q = arr[i];
+        var temp = p;
+        while(p !== 0 && q !== 0) {
+            if(p > q) {
+                 p = p % q;
+            } else {
+                 q = q % p;
+            }
+            
+        }
+        p = (temp * arr[i])/(p + q);
+    }
+    return p;
+}
+lcm([3,4,5,6,7]);   //<== returns 420
 
 ```
