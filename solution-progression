@@ -1,0 +1,11 @@
+**Sources:**
+	*http://en.wikipedia.org/wiki/Least_common_multiple#A_simple_algorithm
+	*http://en.wikipedia.org/wiki/Greatest_common_divisor
+	*http://en.wikipedia.org/wiki/Euclidean_algorithm#Worked_example
+	*rosettacode.org
+	*freecodecamp.com
+	
+The object is to outline the stages of solution I moved through as I tried to find a javascript solution to determine
+the least common multiple of an array of integers. I am following the javascript curriculum at freecodecamp.com, and this
+is one of the Bonifire challenges (Samllest Commons). I am severely math challenged, and so this problem was very difficult for me.
+  
