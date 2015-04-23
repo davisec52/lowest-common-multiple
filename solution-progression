@@ -6,6 +6,72 @@
 	*freecodecamp.com
 	
 The object is to outline the stages of solution I moved through as I tried to find a javascript solution to determine
-the least common multiple of an array of integers. I am following the javascript curriculum at freecodecamp.com, and this
-is one of the Bonifire challenges (Samllest Commons). I am severely math challenged, and so this problem was very difficult for me.
+the least common multiple (lcm) of an array of integers. I am following the javascript curriculum at freecodecamp.com, and this
+is one of the Bonifire challenges (Samllest Commons). I am severely math challenged, and so this problem was very 
+difficult for me.
+
+It is important to already have an understanding of modulo and greatest common divisor (gcd). If not, the wikipedia pages
+will help clarify those terms.
+
+I consulted the wikpedea pages noted above to better understand how Euclid's algorithm solves the problem of lcm and gcd.
+Basically, when figuring the lcm of two numbers, num1 and num2, lcm = num1 x num2/gcd(num1, num2). The question, then, is 
+how to apply that to an array of numbers. I started by translating the pseudocode for gcd given in wikipedia to
+javascript. Wikipedia gave two pseudocode algorithms:
+
+**First**
+I suggest reading the explanation at http://en.wikipedia.org/wiki/Greatest_common_divisor on the "Binary Method." 
+That does a good job of explaining what this is doing. Also, be sure to look over the subtraction method as that
+will further clarify what the code is doing.
+```
+Input: a, b positive integers
+Output: g and d such that g is odd and gcd(a, b) = g×2d
+    d := 0
+    while a and b are both even do
+        a := a/2
+        b := b/2
+        d := d + 1
+    while a ≠ b do
+        if a is even then a := a/2
+        else if b is even then b := b/2
+        else if a > b then a := (a – b)/2
+        else b := (b – a)/2
+    g := a
+    output g, d
+    
+    ```
+    My JS rendering looks like this:
+    You can find a working model at http://repl.it/k6A/0
+    
+    ```
+    function greatestCommonDivisor(a, b) {
+    var d = 0;
+    var g;
+    while(a % 2 === 0 && b % 2 === 0) {
+        a = a/2;
+        b = b/2;
+        d = d + 1;
+    }
+    while( a !== b) {
+        if(a % 2 === 0) {
+            a = a/2;
+        }
+        else if(b % 2 === 0) {
+            b = b/2;
+        }
+        else if(a > b) {
+            a = (a - b)/2;
+        }
+        else
+        {
+            b = (b - a)/2;
+        }
+        g = a;
+    }
+    var gcd = g * (Math.pow(2, d));
+    
+    return gcd;
+}
+greatestCommonDivisor(48, 18);
+
+```
   
