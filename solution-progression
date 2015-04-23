@@ -71,7 +71,33 @@ Output: g and d such that g is odd and gcd(a, b) = g×2d
     
     return gcd;
 }
-greatestCommonDivisor(48, 18);
+greatestCommonDivisor(48, 18);  //<== returns 6
 
 ```
-  
+The next pseudocode example is much simpler and is provides the code I used to modify to derive a solution.
+
+```
+function gcd(a, b)
+    while b ≠ 0
+       t := b
+       b := a mod b
+       a := t
+    return a
+    
+    ```
+    
+My JS rendering follows:
+
+```
+function gcd(a, b) {
+    while(b !== 0) {
+        var temp = b;
+        b = a % b;
+        a = temp;
+        
+    }
+    return a;
+}
+gcd(21, 6);  //<== returns 3
+
+```
