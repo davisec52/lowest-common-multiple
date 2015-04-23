@@ -87,6 +87,7 @@ function gcd(a, b)
     ```
     
 My JS rendering follows:
+You can see the working code at http://repl.it/k6E/4
 
 ```
 function gcd(a, b) {
@@ -99,5 +100,45 @@ function gcd(a, b) {
     return a;
 }
 gcd(21, 6);  //<== returns 3
+
+```
+Now that we have a gcd calculator for two integers, we can make a simple lcm calculator. Remember, lcm = a*b/gcd.
+And you can find the working code at http://repl.it/k6E/5
+
+```
+function lcm(a, b) {
+    return a * b/gcd(a, b);
+}
+
+function gcd(a, b) {
+    while(b !== 0) {
+        var temp = b;
+        b = a % b;
+        a = temp;
+        
+    }
+    return a;
+}
+lcm(21, 6);
+
+```
+
+Next, I converted the gcd code for two integers into code to handle an array of integers:
+See the code at http://repl.it/k6E/2
+
+```
+function gcd(arr) {
+    var a = arr[0];
+    for(var i = 0; i < arr.length; i++) {
+        var b = arr[i];
+        while(b !== 0) {
+            var temp = b;
+            b = a % b;
+            a = temp;
+        }
+    }
+    return a;
+}
+gcd([21, 6]);
 
 ```
