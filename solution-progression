@@ -143,9 +143,10 @@ function gcd(arr) {
 gcd([21, 6, 36]);  //<== returns 3
 
 ```
-Finally, I had work with the code above to do the a*b/gcd iterations.
+Finally, I had work with the code above to get the a*b/gcd iterations.
 
-```function lcm(arr) {
+```
+function lcm(arr) {
     var p = arr[0];
     for(var i = 1; i < arr.length; i++) {
         var q = arr[i];
@@ -165,3 +166,4 @@ Finally, I had work with the code above to do the a*b/gcd iterations.
 lcm([3,4,5,6,7]);   //<== returns 420
 
 ```
+This code is nearly the same as the code on rosettacode.org
